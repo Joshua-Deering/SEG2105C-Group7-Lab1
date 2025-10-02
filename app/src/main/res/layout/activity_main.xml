@@ -156,9 +156,10 @@
 
             <Button
                 android:id="@+id/btn_equal"
-                android:layout_width="0dp"
+                android:layout_width="77dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:rotationX="2"
                 android:text="@string/equal" />
         </TableRow>
     </TableLayout>
@@ -173,4 +174,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="50sp"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnclr"
+        android:layout_width="318dp"
+        android:layout_height="57dp"
+        android:layout_margin="5dp"
+        android:text="@string/btn_clear"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

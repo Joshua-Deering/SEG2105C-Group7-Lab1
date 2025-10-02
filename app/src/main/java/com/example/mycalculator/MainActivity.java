@@ -15,7 +15,7 @@ import javax.script.ScriptException;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btn1, btn2, btn_clear, btn_plus, btn_equal, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn_minus, btn_division, btn_mult, btn_dot;
+    Button btn1, btn2, btn_clear, btn_plus, btn_equal, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btn_minus, btn_division, btn_mult, btn_dot, btnclr;
     TextView text_display;
 
     // This is to evaluate the math expression
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         engine = new ScriptEngineManager().getEngineByName("rhino");
 
+        btnclr = (Button) findViewById(R.id.btnclr);
         btn1 = (Button) findViewById(R.id.btn1);
         btn2 = (Button) findViewById(R.id.btn2);
         btn3 = (Button) findViewById(R.id.btn3);
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7 = (Button) findViewById(R.id.btn7);
         btn8 = (Button) findViewById(R.id.btn8);
         btn9 = (Button) findViewById(R.id.btn9);
+        btn0 = (Button) findViewById(R.id.btn0);
         btn_minus = (Button) findViewById(R.id.btn_minus);
         btn_mult = (Button) findViewById(R.id.btn_mult);
         btn_division = (Button) findViewById(R.id.btn_division);
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setClickListeners() {
+        btnclr.setOnClickListener(this);
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7.setOnClickListener(this);
         btn8.setOnClickListener(this);
         btn9.setOnClickListener(this);
+        btn0.setOnClickListener(this);
         btn_plus.setOnClickListener(this);
         btn_minus.setOnClickListener(this);
         btn_mult.setOnClickListener(this);
@@ -71,6 +75,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.btnclr:
+                text_display.setText("");
+                break;
             case R.id.btn1:
                 addNumber("1");
                 break;
@@ -97,6 +104,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn9:
                 addNumber("9");
+                break;
+            case R.id.btn0:
+                addNumber("0");
                 break;
             case R.id.btn_plus:
                 addNumber("+");
